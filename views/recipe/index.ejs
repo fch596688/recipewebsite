@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<div class="row">
+   <% recipes.forEach(function(recipe){ %>
+     <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="<%= recipe.image %>" alt="image">
+            <div class="caption">
+                <h3><%= recipe.title %> </h3>
+                <p></p>
+                <p><a href="recipe/<%= recipe._id %>" class="btn btn-primary" role="button">More</a></p>
+            </div>
+        </div>
+     </div>  
+   <% }); %>
+</div>
+
+<% include ../partials/footer %>
+
+
+
+
+
+
