@@ -1,3 +1,79 @@
 .form-inline {
     display: inline;
 }
+.navbar {margin-bottom: 0px !important}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover{
+    color: #FF6600;
+}
+.navbar-default .navbar-nav > li> a:hover,
+.navbar-default .navbar-nav > li> a:focus {
+  color: #FF6600;
+  background-color: #e7e7e7;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+color: #FF6600;
+background-color: #e7e7e7;
+}
+/*
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: #3344ff;
+    color:#ffffff;
+  }
+*/
+#navbarSearchForm {
+    width:430px !important;
+}
+.btn.btn-navbar{
+    color: #FF6600;
+}
+.form-control:focus{
+    border-color: #FF6600;
+}
+#navbar-msg {
+    padding-top: 15px;
+    color: #777;
+}
+
+/*section-dishes*/
+/*
+.section {
+ background-image: url(/assets/image/sectionBackground.jpg)   
+}
+*/
+.section-maindishes {
+    margin-top: 20px;
+}
+.textarea >h2 { 
+    color: #FF6600;
+    text-align: center;
+}
+hr.br-dish {
+	border-top: 2px double #FF6600;
+	text-align: center;
+    width: 230px;
+}
+hr.br-dish:after {
+	content: '\002665';
+	display: inline-block;
+	position: relative;
+	top: -15px;
+	padding: 0 10px;
+	background: #fff;
+	color: #FF6600;
+	font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+

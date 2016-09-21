@@ -5,7 +5,11 @@ var passport = require("passport");
 
 //INDEX - show all recipe
 router.get("/", function(req, res){
-   res.redirect("/recipe") 
+   res.redirect("/landing") 
+});
+//LANDINGPAGE
+router.get("/landing", function(req, res){
+   res.render("landing"); 
 });
 //AUTH ROUTES
 router.get("/register", function(req, res){
