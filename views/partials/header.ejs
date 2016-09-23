@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.js"></script>
+    <script src="/assets/js/mainPage.js"></script>
 </head>
 <body>
   <div id="mainPage-navsec">
@@ -40,12 +41,6 @@
                           <li><a href="/recipe"> Explore Recipe <span class="sr-only">(current)</span></a></li>
                           <li><a href="/recipe/new-recipe">Share Your Recipe</a></li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                          <input id="navbarSearchForm" type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button id="navbarSearchBtn" type="submit" class="btn btn-navbar btn-default">Submit</button>
-                    </form>
                     <ul class="nav navbar-nav navbar-right">
                       <% if(!currentUser){ %>
                           <li><a href="/login">Sign In</a></li>
