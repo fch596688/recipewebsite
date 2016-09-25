@@ -3,6 +3,10 @@ var router  = express.Router();
 var Recipe  = require("../models/recipe");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
+var multer = require("multer");
+var upload = multer({dest:'uploads/'});
+var fs = require("fs");
+var path = require("path");
 
 //SHOW ALL RECIPE
 router.get("/", function(req, res){
@@ -17,38 +21,48 @@ router.get("/", function(req, res){
 });
 
 //CREATE - add  a new recipe to DB 
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", middleware.isLoggedIn, upload.any(), function(req, res){
    //get data from form and add to recipes array
-    var author = {
-        id: req.user._id,
-        username: req.user.username
+    if(req.files){
+        req.files.forEach(function(file){
+            console.log(file);
+            var filename = (new Date).valueOf()+"-"+file.originalname
+            fs.rename(file.path, "public/assets/image/"+ filename, function(err){
+                if(err) throw err;
+                console.log("file upload...");
+                var author = {
+                    id: req.user._id,
+                    username: req.user.username
+                }
+                var title = req.body.recipe.title;
+                var image = filename;
+                var description = req.body.recipe.description;
+                var directions = req.body.recipe.directions;
+                var ingredients = req.body.recipe.ingredients;
+                var nutrition_facts = req.body.recipe.nutrition_facts;
+                var newRecipe = {
+                    title: title,
+                    image: image,
+                    description: description,
+                    directions: directions,
+                    ingredients: ingredients,
+                    nutrition_facts: nutrition_facts,
+                    author: author
+                }
+                Recipe.create(newRecipe, function(err, newlyCreated){
+                    if(err){
+                        console.log(err);
+                        req.flash("error", "Create Recipe Failure!");
+                        res.redirect("back");
+                    } else {
+                        console.log(newlyCreated);
+                        req.flash("success", "Thanks for sharing your recipe!");
+                        res.redirect("/recipe");
+                    }
+                });
+            });
+        });
     }
-    var title = req.body.recipe.title;
-    var image = req.body.recipe.image;
-    var description = req.body.recipe.description;
-    var directions = req.body.recipe.directions;
-    var ingredients = req.body.recipe.ingredients;
-    var nutrition_facts = req.body.recipe.nutrition_facts;
-    var newRecipe = {
-        title: title,
-        image: image,
-        description: description,
-        directions: directions,
-        ingredients: ingredients,
-        nutrition_facts: nutrition_facts,
-        author: author
-    }
-    Recipe.create(newRecipe, function(err, newlyCreated){
-        if(err){
-            console.log(err);
-            req.flash("error", "Create Recipe Failure!");
-            res.redirect("back");
-        } else {
-            console.log(newlyCreated);
-            req.flash("success", "Thanks for sharing your recipe!");
-            res.redirect("/recipe");
-        }
-    });
 });
 
 //NEW - show form to create a new recipe

@@ -1,13 +1,13 @@
 <% include ../partials/header %>
 <div class="ui container">
-    <form action="/recipe" class="ui form" method="post">
+    <form action="/recipe" class="ui form" method="post" enctype="multipart/form-data">
         <div class="field">
             <label for="">Title</label>
             <input type="text" name="recipe[title]" placeholder="Recipe Title">
         </div>
         <div class="field">
             <label for="">Image</label>
-            <input type="text" name="recipe[image]" placeholder="ImageURL">
+            <input type="file" name="upload">
         </div>
         <div class="field">
             <label for="">Description</label>
