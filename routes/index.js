@@ -2,14 +2,30 @@ var express  = require("express");
 var router   = express.Router();
 var User     = require("../models/user");
 var passport = require("passport");
+var Recipe   = require("../models/recipe");
 
 //INDEX - show all recipe
 router.get("/", function(req, res){
-   res.redirect("/landing") 
+res.redirect("/landing") 
 });
 //LANDINGPAGE
 router.get("/landing", function(req, res){
-   res.render("landing"); 
+//     Recipe.find({category: 'maindish'}, function(err, foundMaindish){
+//      if(err){
+//          console.log(err);
+//      } else {  
+//          res.render("landing",{mainDish: foundMaindish});
+//      }
+//    });
+    var query = Recipe.find({});
+    query.limit(12);
+    query.exec(function(err, foundrecipe){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("landing", { Recipe: foundrecipe});
+        }
+    });
 });
 //AUTH ROUTES
 router.get("/register", function(req, res){

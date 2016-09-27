@@ -36,6 +36,7 @@ router.post("/", middleware.isLoggedIn, upload.any(), function(req, res){
                 }
                 var title = req.body.recipe.title;
                 var image = filename;
+                var category = req.body.recipe.category;
                 var description = req.body.recipe.description;
                 var directions = req.body.recipe.directions;
                 var ingredients = req.body.recipe.ingredients;
@@ -43,6 +44,7 @@ router.post("/", middleware.isLoggedIn, upload.any(), function(req, res){
                 var newRecipe = {
                     title: title,
                     image: image,
+                    category: category,
                     description: description,
                     directions: directions,
                     ingredients: ingredients,

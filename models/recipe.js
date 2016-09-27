@@ -14,6 +14,7 @@ var recipeSchema = new mongoose.Schema({
     directions: String,
     ingredients: String,
     nutrition_facts: String,
+    category:String,
     comments: [
         {
         type: mongoose.Schema.Types.ObjectId,

@@ -6,8 +6,17 @@
             <input type="text" name="recipe[title]" value="<%= recipe.title %>">
         </div>
         <div class="field">
-            <label for="">ImageURL</label>
-            <input type="text" name="recipe[image]" value="<%= recipe.image %>">
+            <label for="">Image</label>
+            <input type="file" name="upload">
+        </div>
+        <div class="field">
+            <label for="">Category</label>
+            <select name="recipe[category]">
+                <option value="maindish">main dish</option>
+                <option value="appetizer">appetizer</option>
+                <option value="breakfast&brunch">breakfast&brunch</option>
+                <option value="dessert">dessert</option>
+            </select>
         </div>
         <div class="field">
             <label for="">Description</label>
