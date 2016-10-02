@@ -1,8 +1,15 @@
 <% include ./partials/header %>
-<h1>Sign Up!</h1>
-<form action="/register" method="post">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Submit!</button>
-</form>
+<div class="sharePage-jumbotron">
+    
+</div>
+
+<div class="login-page">
+    <h1>Sign Up</h1>
+    <form  id="login-form" class="ui form"action="/register" method="post">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button>Register</button>
+        <p class="message">Have an account? <a href="/login">Sign In</a></p>
+    </form>
+</div>
 <% include ./partials/footer %>

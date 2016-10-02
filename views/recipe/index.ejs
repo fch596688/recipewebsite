@@ -1,18 +1,123 @@
 <% include ../partials/header %>
-<div class="row">
-   <% recipes.forEach(function(recipe){ %>
-     <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-            <img src="/assets/image/<%= recipe.image %>" alt="image">
-            <div class="caption">
-                <h3><%= recipe.title %> </h3>
-                <p><%= recipe.category %></p>
-                <p><a href="recipe/<%= recipe._id %>" class="btn btn-primary" role="button">More</a></p>
-            </div>
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Recipe Go!</div>
+            <div class="intro-heading">Find Your Recipe Now</div>
+            <a href="#show-all-recipe" class="page-scroll btn btn-warning">Find More</a>
         </div>
-     </div>  
-   <% }); %>
+    </div>
+</header>
+<div id="show-all-recipe">
+    <div class="container">
+        <div class="row">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#allrecipe" aria-controls="home" role="tab" data-toggle="tab">All Recipe</a></li>
+                <li role="presentation"><a href="#maindish" aria-controls="maindish" role="tab" data-toggle="tab">Main Dish</a></li>
+                <li role="presentation"><a href="#breakfast" aria-controls="breakfast" role="tab" data-toggle="tab">Breakfast & Brunch</a></li>
+                <li role="presentation"><a href="#appetizer" aria-controls="appetizer" role="tab" data-toggle="tab">Appetizer</a></li>
+                <li role="presentation"><a href="#dessert" aria-controls="dessert" role="tab" data-toggle="tab">Dessert</a></li>
+              </ul>
+        </div>
+          <!-- Tab panes -->
+        <div class="row">
+            <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="allrecipe">
+                <div class="grid">
+                   <% recipes.forEach(function(recipe){ %>
+                     <div class="col-sm-6 col-md-4 grid-item">
+                        <div class="thumbnail view hm-zoom">
+                            <img src="/assets/image/<%= recipe.image %>" alt="image">
+                            <div class="caption">
+                                <h3><%= recipe.title%></h3>
+                                <p>Recipe By: <%= recipe.author.username %></p>
+                                <p><a href="recipe/<%= recipe._id %>" class="btn btn-primary btn-custom" role="button">More</a></p>
+                            </div>
+                        </div>
+                     </div>  
+                   <% }); %>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="maindish">
+                  <div class="container">
+                        <div class="row">
+                            <% MainDish.forEach(function(foundMD){ %>
+                             <div class="col-sm-6 col-md-3">
+                                <div class="thumbnail view hm-zoom">
+                                    <img src="/assets/image/<%= foundMD.image %>" alt="image">
+                                    <div class="caption">
+                                        <h3><%= foundMD.title %> </h3>
+                                        <p>Recipe By: <%= foundMD.author.username %></p>
+                                        <p><a href="recipe/<%= foundMD._id %>" class="btn btn-primary" role="button">More</a></p>
+                                    </div>
+                                </div>
+                             </div>  
+                           <% }); %>
+                        </div>
+                  </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="breakfast">
+               <div class="container">
+                   <div class="row">
+                       <% BFB.forEach(function(foundBF){ %>
+                         <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail view hm-zoom">
+                                <img src="/assets/image/<%= foundBF.image %>" alt="image">
+                                <div class="caption">
+                                    <h3><%= foundBF.title %> </h3>
+                                    <p>Recipe By: <%= foundBF.author.username %></p>
+                                    <p><a href="recipe/<%= foundBF._id %>" class="btn btn-primary" role="button">More</a></p>
+                                </div>
+                            </div>
+                         </div>  
+                       <% }); %>
+                   </div>
+               </div>   
+            </div>
+            <div role="tabpanel" class="tab-pane" id="appetizer">
+                <div class="container">
+                   <div class="row">
+                       <% AP.forEach(function(foundAP){ %>
+                         <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail view hm-zoom">
+                                <img src="/assets/image/<%= foundAP.image %>" alt="image">
+                                <div class="caption">
+                                    <h3><%= foundAP.title %> </h3>
+                                    <p>Recipe By: <%= foundAP.author.username %></p>
+                                    <p><a href="recipe/<%= foundAP._id %>" class="btn btn-primary" role="button">More</a></p>
+                                </div>
+                            </div>
+                         </div>  
+                       <% }); %>
+                   </div>
+               </div>   
+            </div>
+            <div role="tabpanel" class="tab-pane" id="dessert">
+                <div class="container">
+                   <div class="row">
+                       <% DE.forEach(function(foundDE){ %>
+                         <div class="col-sm-6 col-md-3">
+                            <div class="thumbnail view hm-zoom">
+                                <img src="/assets/image/<%= foundDE.image %>" alt="image">
+                                <div class="caption">
+                                    <h3><%= foundDE.title %> </h3>
+                                    <p>Recipe By: <%= foundDE.author.username %></p>
+                                    <p><a href="recipe/<%= foundDE._id %>" class="btn btn-primary" role="button">More</a></p>
+                                </div>
+                            </div>
+                         </div>  
+                       <% }); %>
+                   </div>
+               </div>   
+            </div>
+          </div>
+        </div>        
+            
+
+    </div>
 </div>
+
 
 <% include ../partials/footer %>
 

@@ -1,43 +1,53 @@
 <% include ../partials/header %>
-<div class="ui container">
-    <form action="/recipe" class="ui form" method="post" enctype="multipart/form-data">
-        <div class="field">
-            <label for="">Title</label>
-            <input type="text" name="recipe[title]" placeholder="Recipe Title">
-        </div>
-        <div class="field">
-            <label for="">Image</label>
-            <input type="file" name="upload">
-        </div>
-        <div class="field">
-            <label for="">Category</label>
-            <select name="recipe[category]">
-                <option value="maindish">main dish</option>
-                <option value="appetizer">appetizer</option>
-                <option value="breakfast&brunch">breakfast&brunch</option>
-                <option value="dessert">dessert</option>
-            </select>
-        </div>
-        <div class="field">
-            <label for="">Description</label>
-            <textarea name="recipe[description]" placeholder="Recipe Description"></textarea>
-        </div>
-        <div class="field">
-            <label for="">Ingredients</label>
-            <textarea name="recipe[ingredients]" placeholder="Recipe ingredients"></textarea>
-        </div>
-        <div class="field">
-            <label for="">Directions</label>
-            <textarea name="recipe[directions]" placeholder="Recipe Directions"></textarea>
-        </div>
-        <div class="field">
-            <label for="">Nutrition Facts</label>
-            <textarea name="recipe[nutrition_facts]" placeholder="Recipe Nutrition Facts"></textarea>
-        </div>
-        <div class="field">
-            <input type="submit">
-        </div>
-    </form>
+<div class="sharePage-jumbotron">
+    
 </div>
+<div id="new-recipe">
+    <div class="container">
+        <form action="/recipe" class="ui form" method="post" enctype="multipart/form-data">
+            <div class=" ten wide field">
+                <label for="">Title</label>
+                <input id="new-title" type="text" name="recipe[title]" placeholder="Recipe Title">
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label for="">Image</label>
+                    <input type="file" name="upload">
+                </div>
+                <div class="field">
+                    <label for="">Category</label>
+                    <select id="new-category" name="recipe[category]">
+                        <option value="maindish">main dish</option>
+                        <option value="appetizer">appetizer</option>
+                        <option value="breakfast&brunch">breakfast&brunch</option>
+                        <option value="dessert">dessert</option>
+                    </select>
+                </div> 
+            </div>
+            
+            <div class="field">
+                <label for="">Description</label>
+                <textarea name="recipe[description]" placeholder="Recipe Description"></textarea>
+            </div>
+            <div class="field">
+                <label for="">Ingredients</label>
+                <textarea name="recipe[ingredients]" placeholder="Recipe ingredients"></textarea>
+            </div>
+            <div class="field">
+                <label for="">Directions</label>
+                <textarea name="recipe[directions]" placeholder="Recipe Directions"></textarea>
+            </div>
+            <div class="field">
+                <label for="">Nutrition Facts</label>
+                <textarea name="recipe[nutrition_facts]" placeholder="Recipe Nutrition Facts"></textarea>
+            </div>
+            <div class="field">
+                <input class="btn btn-success btn-sm" type="submit">
+            </div>
+        </form>
+</div>
+    
+</div>
+
 
 <% include ../partials/footer %>

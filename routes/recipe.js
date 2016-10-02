@@ -11,13 +11,56 @@ var path = require("path");
 //SHOW ALL RECIPE
 router.get("/", function(req, res){
    //get all recipes from DB
-    Recipe.find({}, function(err, foundRecipe){
-        if(err){
-            console.log(err);
-        } else {
-            res.render("recipe/index", {recipes: foundRecipe});
-        }
+    var query = Recipe.find({});
+    var queryMD = Recipe.find({category: 'maindish'});
+    var queryBF = Recipe.find({category: 'breakfast&brunch'});
+    var queryAP = Recipe.find({category: 'appetizer'});
+    var queryDE = Recipe.find({category: 'dessert'});
+    query.exec(function(err, foundRecipe){
+       if(err){
+           console.log(err);
+       } else {
+           queryMD.exec(function(err, foundMD){
+              if (err){
+                  console.log(err);
+              } else {
+                  queryBF.exec(function(err, foundBF){
+                     if(err){
+                         console.log(err);
+                     } else {
+                         queryAP.exec(function(err, foundAP){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                queryDE.exec(function(err, foundDE){
+                                   if(err){
+                                       console.log(err);
+                                   } else {
+                                       res.render("recipe/index", {
+                                           recipes: foundRecipe,
+                                           MainDish: foundMD,
+                                           BFB: foundBF,
+                                           AP: foundAP,
+                                           DE: foundDE
+                                       });
+                                   }
+                                });
+                            }
+                         });
+                     }
+                  });
+              }
+           });
+       }
     });
+//    Recipe.find({}, function(err, foundRecipe){
+//        if(err){
+//            console.log(err);
+//        } else {
+//            res.render("recipe/index", {recipes: foundRecipe});
+//        }
+//    });
+
 });
 
 //CREATE - add  a new recipe to DB 

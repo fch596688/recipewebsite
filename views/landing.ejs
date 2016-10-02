@@ -32,14 +32,29 @@
         </div>
   </div><!--carousel-inner list box-->
 
-    <form id="searchForm">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-btn">
-                <button class="btn btn-default">Search</button>
-            </span>
-        </div>
-    </form>
+        <form  id="searchForm" action="/searchResults">
+            <div class="input-group">
+                <input type="text" name="q"
+                       id="tipue_search_input"
+                       list="search"
+                       class="form-control"
+                       autocomplete="off" required>
+                <span class="input-group-btn">
+                    <button class="btn btn-warning" type="submit">SEARCH</button>
+                </span>
+            </div>
+            <datalist id="search">
+                <option>Attractions</option>
+                <option>Restaurants</option>
+                <option>Hotels</option>
+                <option>Guides</option>
+                <option>Harvard University</option>
+                <option>Freedom Trail</option>
+                <option>MIT</option>
+            </datalist>
+        </form>
+
+
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-recipeGo" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -52,23 +67,40 @@
     </div>
 </div>
 </div>
+<!-- alert message -->
+<div class="container">
+    <% if(success && success.length > 0) {%>
+        <div class="alert alert-success" role="alert"><%= success %></div>
+    <% } %>
 
-<div>
-    <div class="container textarea">
-        <h2>Main Dishes</h2>
-        <hr class="br-dish">
-    </div>
+    <% if(error && error.length > 0) {%>
+        <div class="alert alert-danger" role="alert"><%= error %></div>
+    <% } %>
+</div>
+<div class="fresh-recipe">
     <div class="container">
+       <div class = "row">
+           <div class="col-lg-12 textarea">
+                    <h2>Fresh Recipe</h2>
+                    <hr class="br-dish">
+           </div>
+       </div>
+
+    </div>
+    <div id="portfolio" class="container">
         <div class="row">
             <% Recipe.forEach(function(foundrecipe){ %>
-                <div class="col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <img src="/assets/image/<%= foundrecipe.image %>" alt="">
-                        <div class="caption">
-                          <h3><%= foundrecipe.title %></h3>
-                          <p></p>
-                          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <div class="col-sm-6 col-md-4 portfolio-item">
+                   <a href="recipe/<%= foundrecipe._id %>" class="portfolio-link" data-toggle="modal">
+                       <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+
+                           </div>
                         </div>
+                        <img class="wow" src="/assets/image/<%= foundrecipe.image %>" class="img-responsive" alt="">
+                   </a>
+                    <div class="portfolio-caption">
+                      <h3><%= foundrecipe.title %></h3>
                     </div>
                 </div> 
             <% }); %>
@@ -76,6 +108,9 @@
     </div>
 </div>
 
-
-
+<div class="footer-copyright">
+        <div id="footer-text" class="container-fluid">
+            <p>© 2016 Copyright:  <a href="/landing"> Recipe Go </a></p>
+        </div>
+</div>
 <% include ./partials/footer %>

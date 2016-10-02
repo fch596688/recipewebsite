@@ -47,6 +47,10 @@ router.post("/register", function(req, res){
     });
 });
 
+router.get("/searchResults", function(req, res){
+   res.render("searchResults"); 
+});
+
 //SHOW LOGIN FORM
 router.get("/login", function(req, res){
    res.render("login"); 

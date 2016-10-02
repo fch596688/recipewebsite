@@ -1,32 +1,46 @@
-.form-inline {
-    display: inline;
+html, body{
+    background-color: #fff;
+}
+body {
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.clear {
+    clear:both;
+}
+
+/*navbar*/
+
+.navbar-custom{
+    background-color: rgba(0, 0, 0, 0.34);
+    border-color: transparent;
+}
+.top-nav-collapse {
+    background-color: #ff6600;
+    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    transition: background .5s ease-in-out,padding .5s ease-in-out;
 }
 .navbar {margin-bottom: 0px !important}
 
 .navbar-default .navbar-brand,
 .navbar-default .navbar-brand:hover{
-    color: #FF6600;
+    color: #fff;
+}
+.navbar-default .navbar-nav > li> a {
+    color: #fff;
 }
 .navbar-default .navbar-nav > li> a:hover,
 .navbar-default .navbar-nav > li> a:focus {
   color: #FF6600;
   background-color: #e7e7e7;
 }
-
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
 color: #FF6600;
 background-color: #e7e7e7;
-}
-/*
-.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
-    background-color: #3344ff;
-    color:#ffffff;
-  }
-*/
-#navbarSearchForm {
-    width:430px !important;
 }
 .btn.btn-navbar{
     color: #FF6600;
@@ -36,26 +50,57 @@ background-color: #e7e7e7;
 }
 #navbar-msg {
     padding-top: 15px;
-    color: #777;
+    color: #fff;
+    padding-right: 10px;
 }
 
-/*section-dishes*/
-/*
-.section {
- background-image: url(/assets/image/sectionBackground.jpg)   
+/*carousel*/
+
+#searchForm {
+        position: absolute;
+        left: 50%;
+        width: 60%;
+        top: 35%;
+        margin-left: -30%;
+        margin-top: -15px;
+        z-index: 10;
+    
 }
-*/
-.section-maindishes {
-    margin-top: 20px;
+#searchForm .input-group input{
+    color: #ff6600;
+    font-size: 18px;
+    font-weight: bold;
 }
-.textarea >h2 { 
+
+.carousel-caption h2 {
+    font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: 'Cabin', sans-serif;
+    font:italic;
+  }
+.carousel .carousel-control { visibility: hidden; }
+.carousel:hover .carousel-control { visibility: visible; }
+
+
+/*fresh-recipe*/
+
+.fresh-recipe {
+    background-color: #eeeeee;
+}
+.textarea {
+    margin: 50px auto;
+}
+.textarea >h2 {
+    font-size: 36px;
     color: #FF6600;
     text-align: center;
+    font-family: 'Pacifico', cursive;
 }
 hr.br-dish {
 	border-top: 2px double #FF6600;
 	text-align: center;
-    width: 230px;
+    width: 700px;
 }
 hr.br-dish:after {
 	content: '\002665';
@@ -63,30 +108,383 @@ hr.br-dish:after {
 	position: relative;
 	top: -15px;
 	padding: 0 10px;
-	background: #fff;
+	background: #eeeeee;
 	color: #FF6600;
 	font-size: 18px;
 }
 
-#searchForm {
-        left: 50%;
-        width: 60%;
-        top: 35%;
-        margin-left: -30%;
-        margin-top: -15px;
-        z-index: 10;
-        position: absolute;
+#portfolio .portfolio-item {
+  margin: 0 0 15px;
+  right: 0;
 }
-.carousel-caption {
- 
+#portfolio .portfolio-item .portfolio-link {
+  display: block;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
 }
-.carousel-caption h2 {
-    font-size: 30px;
-    line-height: 1.4;
-    margin-bottom: 20px;
+#portfolio .portfolio-item .portfolio-link img {
+    width:380px;
+    height: 240px;
+    overflow: hidden;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+  background: rgba(255, 255, 255, 0.35);
+  position: absolute;
+  width: 380px;
+  height: 100%;
+  opacity: 0;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+  opacity: 1;
+}
+#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+  top: 50%;
+  margin-top: -12px;
+  color: white;
+}
+
+#portfolio .portfolio-item .portfolio-caption {
+  width: 380px;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  padding: 10px;
+}
+#portfolio .portfolio-item .portfolio-caption h3 {
+    text-transform: none;
+    margin: 0;
+    color: #ff5500;
+}
+#portfolio .portfolio-item .portfolio-caption p {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+}
+#portfolio * {
+  z-index: 2;
+}
+
+/*index-recipe*/
+
+header {
+  background-image: url('/assets/image/show-jumbotron.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  text-align: center;
+  color: white;
+}
+header .intro-text {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+header .intro-text .intro-lead-in {
+  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 25px;
+}
+header .intro-text .intro-heading {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+@media (min-width: 768px) {
+  header .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
   }
-.carousel .carousel-control { visibility: hidden; }
-.carousel:hover .carousel-control { visibility: visible; }
+  header .intro-text .intro-lead-in {
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 25px;
+  }
+  header .intro-text .intro-heading {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 75px;
+    margin-bottom: 50px;
+  }
+}
+/*nav-tabs*/
+.nav-tabs{
+    background-color: #ff6600;
+    margin-bottom: 25px;
+    margin-top: 50px;
+    align-content: center;
+}
+.nav-tabs > li >a {
+    color:#fff;
+    border-radius: 0;
+}
+.nav-tabs > li > a:hover{
+    color: #fff;
+    background-color: rgba(249, 107, 12, 0.86);
+    border-color: transparent;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #fff;
+  cursor: default;
+  background-color: #fc5305;
+  border: 0;
+  border-bottom-color: transparent;
+}
+
+.thumbnail {
+    border-radius: 0px;
+    border: 0;
+    background-color: #EEEEEE; 
+}
+.thumbnail img{
+    padding: 2px;
+    width: 288px;
+    height: 200px;
+}
+.thumbnail .caption {
+    padding: 0;
+}
+.thumbnail .caption p {
+    padding: 0;
+    margin: 4px;
+    text-align: left;
+    color: #CAC9CA;
+    font-size: 11px;
+}
+.thumbnail .caption p > a {
+    background-color: #ff6600;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color:  #F3F0EB !important;
+    color: #ff6600 !important;
+}
+.thumbnail .caption h3 {
+    padding: 0;
+    margin-top: 10px;
+    color: #ff6600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.grid-item {
+    width:292.5px;
+}
+
+/*
+show-one-recipe
+*/
+
+.jumbotron {
+    background-image: url("/assets/image/oneRecipe.jpg");
+    height: 300px;
+}
+@media(min-width:1200px){
+    #recipe-img{
+    width: 750px;
+    height: 450px;
+    overflow: hidden;
+    }
+}
+
+@media(min-width:992px) and (max-width:1199px){
+    #recipe-img{
+    width: 617px;
+    height: 400px;
+    overflow: hidden;
+    }
+}
+
+@media(min-width:768px) and (max-width:991px){
+    #recipe-img{
+    width: 470px;
+    height: 300px;
+    overflow: hidden;
+    }
+}
+@media(max-width:767px){
+    #recipe-img{
+    max-width:300px;
+    height: 200px;
+    overflow: hidden;
+    }
+}
+
+#recipe-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background-color: #fff;
+    margin-top: -90px;
+}
+#recipe-header h1 {
+    color:#ff6600;
+}
+.displayInline {
+    display: inline;
+}
+
+#recipe-content {
+    margin:0;
+    padding: 20px 20px;
+    background-color: #fff;
+}
+#recipe-comment hr {
+    padding-top: 10px;
+}
+#recipe-comment {
+    background-color: #fff !important;
+    margin:0;
+    padding: 20px 20px;
+    border-top: 1px solid #EEEEEE;
+}
+#recipe-comment h2 {
+    padding:0px;
+    margin: 0px;
+    float:left;
+}
+.comment-btn {
+    float:right;
+}
+
+#commnet-header{
+    margin:0;
+    padding:0;  
+}
+#comment-input{
+    
+}
+#comment-input textarea {
+    margin-top: 20px;
+    padding:10px auto;
+    height: 100px;
+}
+#comment-info{
+    float: left;
+    padding-top: 10px;
+}
+#comment-control {
+    float:right;
+}
+
+/*share-recipe*/
+
+.sharePage-jumbotron {
+    background-image: url("/assets/image/shareRecipe.jpg");
+    height:300px;
+}
+
+#new-recipe {
+    background-color: #fff;
+    padding-top: 20px;
+    
+}
+#new-recipe label {
+    font-size: 24px;
+    margin:20px auto;
+}
+#new-title {
+    height:15px;
+    
+}
+#new-category {
+    height: 39px;
+    font-size:18px;
+}
+
+/*login page*/
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+#login-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+border-radius: 4px;
+}
+#login-form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+#login-form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #ff6800;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+#login-form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+#login-form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+#login-form .message a {
+  color: #ff6600;
+  text-decoration: none;
+}
+.login-page h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff6600;
+}
+
+/*footer*/
+.footer-copyright {
+    height: 30px;
+    background: #ff6600;
+    text-align: center;
+}
+#footer-text p{
+    color:#fff;
+}
+#footer-text p > a {
+    color: #fff;
+}
+
 
 
 
