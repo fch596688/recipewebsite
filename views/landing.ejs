@@ -32,10 +32,9 @@
         </div>
   </div><!--carousel-inner list box-->
 
-        <form  id="searchForm" action="/searchResults">
+        <form  id="searchForm" action="/landing" method="post">
             <div class="input-group">
-                <input type="text" name="q"
-                       id="tipue_search_input"
+                <input type="text" name="searchItem"
                        list="search"
                        class="form-control"
                        autocomplete="off" required>
@@ -44,13 +43,8 @@
                 </span>
             </div>
             <datalist id="search">
-                <option>Attractions</option>
-                <option>Restaurants</option>
-                <option>Hotels</option>
-                <option>Guides</option>
-                <option>Harvard University</option>
-                <option>Freedom Trail</option>
-                <option>MIT</option>
+                <option>Chicken</option>
+                <option>Spicy</option>
             </datalist>
         </form>
 
@@ -66,16 +60,6 @@
     </a>
     </div>
 </div>
-</div>
-<!-- alert message -->
-<div class="container">
-    <% if(success && success.length > 0) {%>
-        <div class="alert alert-success" role="alert"><%= success %></div>
-    <% } %>
-
-    <% if(error && error.length > 0) {%>
-        <div class="alert alert-danger" role="alert"><%= error %></div>
-    <% } %>
 </div>
 <div class="fresh-recipe">
     <div class="container">

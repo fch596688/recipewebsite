@@ -24,5 +24,6 @@ var recipeSchema = new mongoose.Schema({
        
     });
 
+recipeSchema.index({title:'text', description: 'text', directions: 'text', ingredients:'text', nutrition_facts:'text', category:'text'});
 module.exports = mongoose.model("Recipe", recipeSchema);
 

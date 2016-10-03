@@ -10,6 +10,16 @@ body {
     clear:both;
 }
 
+/*alert-message*/
+
+#alert-message {
+    position: absolute;
+    margin-left: 20%;
+    margin-top: 10%;
+    align-content: center;
+    z-index: 100;
+}
+
 /*navbar*/
 
 .navbar-custom{
@@ -86,7 +96,7 @@ background-color: #e7e7e7;
 /*fresh-recipe*/
 
 .fresh-recipe {
-    background-color: #eeeeee;
+    background-color: #fff;
 }
 .textarea {
     margin: 50px auto;
@@ -100,7 +110,6 @@ background-color: #e7e7e7;
 hr.br-dish {
 	border-top: 2px double #FF6600;
 	text-align: center;
-    width: 700px;
 }
 hr.br-dish:after {
 	content: '\002665';
@@ -108,10 +117,11 @@ hr.br-dish:after {
 	position: relative;
 	top: -15px;
 	padding: 0 10px;
-	background: #eeeeee;
+	background: #fff;
 	color: #FF6600;
 	font-size: 18px;
 }
+
 
 #portfolio .portfolio-item {
   margin: 0 0 15px;
@@ -155,7 +165,7 @@ hr.br-dish:after {
 #portfolio .portfolio-item .portfolio-caption {
   width: 380px;
   margin: 0 auto;
-  background-color: white;
+  background-color:#eeeeee;
   text-align: center;
   padding: 10px;
 }
@@ -484,6 +494,8 @@ border-radius: 4px;
 #footer-text p > a {
     color: #fff;
 }
+
+/*search result page*/
 
 
 

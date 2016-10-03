@@ -3,4 +3,27 @@
 </div>
 
 
-<div id="tipue_search_content"></div>
+<div id="search-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 textarea">
+                <h2>Search Results</h2>
+                <hr id="searh-hr" class="br-dish">
+            </div>
+            <div class="grid">
+                <% Recipe.forEach(function(foundrecipe){ %>
+                     <div class="col-sm-6 col-md-4 grid-item">
+                        <div class="thumbnail view hm-zoom">
+                            <img src="/assets/image/<%= foundrecipe.image %>" alt="image">
+                            <div class="caption">
+                                <h3><%= foundrecipe.title%></h3>
+                                <p>Recipe By: <%= foundrecipe.author.username %></p>
+                                <p><a href="recipe/<%= foundrecipe._id %>" class="btn btn-primary btn-custom" role="button">More</a></p>
+                            </div>
+                        </div>
+                    </div>  
+                <% }); %> 
+            </div>
+        </div>
+    </div>
+</div>

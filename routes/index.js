@@ -27,6 +27,20 @@ router.get("/landing", function(req, res){
         }
     });
 });
+
+//searching route
+router.post("/landing", function(req, res){
+    var searchItem = req.body.searchItem;
+    var queryItem = Recipe.find({$text: {$search: searchItem}});
+    queryItem.exec(function(err, foundrecipe){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("searchResults", {Recipe: foundrecipe});
+        }
+    })
+});
+
 //AUTH ROUTES
 router.get("/register", function(req, res){
     res.render("register");
@@ -47,9 +61,6 @@ router.post("/register", function(req, res){
     });
 });
 
-router.get("/searchResults", function(req, res){
-   res.render("searchResults"); 
-});
 
 //SHOW LOGIN FORM
 router.get("/login", function(req, res){
