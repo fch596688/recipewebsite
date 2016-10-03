@@ -16,7 +16,8 @@ var recipeRoutes  = require("./routes/recipe"),
     indexRoutes   = require("./routes/index");
     
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/recipe_go");
+//mongoose.connect("mongodb://localhost/recipe_go");
+mongoose.connect("mongodb://changhao:changhao@ds019053.mlab.com:19053/webdev-changhao");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
