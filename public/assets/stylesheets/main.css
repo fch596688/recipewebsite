@@ -14,8 +14,9 @@ body {
 
 #alert-message {
     position: absolute;
+    width:60%;
+    margin-top: 50px;
     margin-left: 20%;
-    margin-top: 10%;
     align-content: center;
     z-index: 100;
 }
