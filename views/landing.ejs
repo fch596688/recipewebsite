@@ -64,22 +64,20 @@
 <div class="fresh-recipe">
     <div class="container">
        <div class = "row">
-           <div class="col-lg-12 textarea">
+           <div class="col-sm-12 textarea">
                     <h2>Fresh Recipe</h2>
                     <hr class="br-dish">
            </div>
        </div>
-
     </div>
-    <div id="portfolio" class="container">
+    <div id="portfolio">
         <div class="row">
             <% Recipe.forEach(function(foundrecipe){ %>
-                <div class="col-sm-6 col-md-4 portfolio-item">
+                <div class="portfolio-item col-sm-6 col-md-4 ">
                    <a href="recipe/<%= foundrecipe._id %>" class="portfolio-link" data-toggle="modal">
-                       <div class="portfolio-hover">
+                        <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-
-                           </div>
+                            </div>
                         </div>
                         <img class="wow" src="/assets/image/<%= foundrecipe.image %>" class="img-responsive" alt="">
                    </a>
