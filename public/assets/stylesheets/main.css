@@ -304,9 +304,9 @@ header .intro-text .intro-heading {
     width:292.5px;
 }
 
-@media(max-width: 767px){
+@media(max-width: 991px){
   .tab-content {
-    margin-left: 8%;
+    margin-left: 10%;
   }
 }
 /*
