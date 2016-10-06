@@ -244,7 +244,6 @@ header .intro-text .intro-heading {
 .nav-tabs{
     background-color: #ff6600;
     margin-bottom: 25px;
-    margin-top: 50px;
     align-content: center;
 }
 .nav-tabs > li >a {
@@ -305,10 +304,17 @@ header .intro-text .intro-heading {
     width:292.5px;
 }
 
+@media(max-width: 767px){
+  .tab-content {
+    margin-left: 8%;
+  }
+}
 /*
 show-one-recipe
 */
-
+.form-inline {
+  display: inline;
+}
 .jumbotron {
     background-image: url("/assets/image/oneRecipe.jpg");
     height: 300px;
