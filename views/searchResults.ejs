@@ -6,13 +6,15 @@
 <div id="search-content">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 textarea">
+            <div class="col-sm-12 textarea">
                 <h2>Search Results</h2>
                 <hr id="searh-hr" class="br-dish">
             </div>
+        </div>
+        <div class="row">
             <div class="grid">
                 <% Recipe.forEach(function(foundrecipe){ %>
-                     <div class="col-sm-6 col-md-4 grid-item">
+                    <div class="col-sm-6 col-md-4 grid-item">
                         <div class="thumbnail view hm-zoom">
                             <img src="/assets/image/<%= foundrecipe.image %>" alt="image">
                             <div class="caption">
@@ -23,7 +25,7 @@
                         </div>
                     </div>  
                 <% }); %> 
-            </div>
+            </div>   
         </div>
     </div>
 </div>
