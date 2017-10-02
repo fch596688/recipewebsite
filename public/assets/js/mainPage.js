@@ -1,6 +1,6 @@
 
+//scrolling page to some position, change navbar
 $(window).scroll(function() {
-    
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
@@ -26,8 +26,4 @@ var msnry = new Masonry( elem, {
   columnWidth:292.5
 });
 
-$('#tipue_search_input').tipuesearch({
-          'mode': 'live',
-          'liveDescription': '.header',
-          'liveContent': '.container'
-     });
+

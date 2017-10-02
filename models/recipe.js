@@ -1,5 +1,6 @@
 var mongoose  = require("mongoose");
 
+//define recipe data model
 var recipeSchema = new mongoose.Schema({
     author: {
         id: {
@@ -24,6 +25,7 @@ var recipeSchema = new mongoose.Schema({
        
     });
 
+// define recipe index for searching recipes
 recipeSchema.index({title:'text', description: 'text', directions: 'text', ingredients:'text', nutrition_facts:'text', category:'text'});
 module.exports = mongoose.model("Recipe", recipeSchema);
 

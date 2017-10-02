@@ -10,13 +10,6 @@ res.redirect("/landing")
 });
 //LANDINGPAGE
 router.get("/landing", function(req, res){
-//     Recipe.find({category: 'maindish'}, function(err, foundMaindish){
-//      if(err){
-//          console.log(err);
-//      } else {  
-//          res.render("landing",{mainDish: foundMaindish});
-//      }
-//    });
     var query = Recipe.find({});
     query.limit(12);
     query.exec(function(err, foundrecipe){
@@ -60,8 +53,6 @@ router.post("/register", function(req, res){
         
     });
 });
-
-
 //SHOW LOGIN FORM
 router.get("/login", function(req, res){
    res.render("login"); 
@@ -78,12 +69,6 @@ router.get("/logout", function(req, res){
     req.flash("success", "Logged you out!");
     res.redirect("/recipe");
 });
-//WHETHER HAS LOGGEDIN
-function isLoggedin(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
-}
+
 
 module.exports = router;

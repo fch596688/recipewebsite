@@ -9,21 +9,21 @@ var bodyParser    = require("body-parser"),
     User          = require("./models/user"),
     Recipe        = require("./models/recipe"),
     Comment       = require("./models/comment");
-    //seedDB        = require("./seeds");
+
 
 // REQUIRE ROUTES
 var recipeRoutes  = require("./routes/recipe"),
     indexRoutes   = require("./routes/index");
     
 mongoose.Promise = global.Promise;
-//mongoose.connect("mongodb://localhost/recipe_go");
+//mongoose.connect("mongodb://localhost/recipe_go");//connect local mongodb
 mongoose.connect("mongodb://changhao:changhao@ds019053.mlab.com:19053/webdev-changhao");
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
-app.use(methodOverride("_method"));
+app.use(express.static(__dirname + "/public"));//set the default path to search static files
+app.use(methodOverride("_method"));// initilize 
 app.use(flash());
-//seedDB();
+
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({

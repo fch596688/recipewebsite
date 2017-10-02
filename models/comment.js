@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 
+//define comment data model
 var commentSchema = mongoose.Schema({
     text:String,
     author: {
